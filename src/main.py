@@ -9,7 +9,7 @@ from sklearn.neighbors import KNeighborsClassifier
 # from sklearn.naive_bayes import GaussianNB
 
 # 분리한 모듈 임포트
-from classifier import OlfactoryEEGClassifier
+from WSDF import OlfactoryEEGClassifier
 from channel_selection import select_channels_by_correlation
 from visualization import plot_confusion_matrix
 
