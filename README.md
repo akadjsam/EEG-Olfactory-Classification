@@ -15,13 +15,36 @@ To address this, we propose a novel pipeline that integrates a **Pearson correla
 * **Performance:** Maintains or slightly improves classification accuracy compared to using all channels.
 * **Method:** Systematically identifies and eliminates redundant channels by analyzing inter-channel correlations.
 
-## Dataset
-We used a public olfactory EEG dataset. Please download the dataset from [https://ieee-dataport.org/documents/olfactory-eeg-datasets-eegdot-and-eegdoc] and structure it as follows
+## Dataset Preparation
+
+### 1. Download
+Please download the **Olfactory EEG Dataset (EEG_DOT and EEG_DOC)** from [IEEE DataPort](https://ieee-dataport.org/documents/olfactory-eeg-datasets-eegdot-and-eegdoc).
+
+### 2. Preprocessing (MATLAB)
+Before running the main code, **data preprocessing using MATLAB is required.**
+#### MATLAB Requirements
+To run the preprocessing script (`preprocessing.m`), the following environments are required:
+
+* **MATLAB** (Tested on R2022b or later)
+* **Signal Processing Toolbox**
+* **EEGLAB** (Required for `.set` / `.fdt` file processing)
+  
+1. Open MATLAB and run the preprocessing script (e.g., `preprocessing.m`).
+2. This process will convert the raw data into `.set` and `.fdt` files (EEGLAB format).
+
+### 3. File Structure
+After preprocessing, please organize the output files into the `data/` directory as shown below. The Python code will load data from this directory.
+
 ```bash
-data/
-├── Sub. 1_A_001.fdt
-├── Sub. 1_A_001.set
-└── ...
+[Repo Root]
+├── data/
+│   ├── Sub. 1_A_001.fdt
+│   ├── Sub. 1_A_001.set
+│   ├── Sub. 1_A_002.fdt
+│   ├── Sub. 1_A_002.set
+│   └── ...
+├── src/
+└── README.md
 ```
 
 ## Usage
